@@ -28,3 +28,6 @@ typings/
 .lock
 .idea
 *.lock
+dist/js
+dist/*.css
+dist/index.html

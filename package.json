@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "webpack-dev-server --progress --port 1488 --hot --host 0.0.0.0 --config ./config/webpack.config.dev.js",
+    "dev": "webpack-dev-server --progress --port 8080 --hot --host 0.0.0.0 --config ./config/webpack.config.dev.js",
     "build": "webpack --progress --config ./config/webpack.config.prod.js",
     "babel-upgrade": "babel-upgrade --write --install"
   },

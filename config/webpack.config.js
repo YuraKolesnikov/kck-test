@@ -14,7 +14,7 @@ module.exports = {
 		'./src/assets/scss/main.scss'
 	],
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, '../dist'),
 		filename: "js/[name].[hash:5].js",
 	},
 	optimization: {
@@ -83,7 +83,7 @@ module.exports = {
 				shortcut: './dist/site-icon/app-logo.png',
 				apple: {
 					'57x57': './dist/site-icon/app-logo.png',
-					'60x60': './dist/site-icon/app-logo.png',
+					'60x60': '../dist/site-icon/app-logo.png',
 					'72x72': './dist/site-icon/app-logo.png',
 					'76x76': './dist/site-icon/app-logo.png',
 					'114x114': './dist/site-icon/app-logo.png',
@@ -94,9 +94,7 @@ module.exports = {
 				}
 			},
 			meta: {
-				description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at blanditiis consectetur cupiditate dignissimos esse, fugiat illum laudantium nihil, nisi numquam obcaecati officiis optio placeat, quas quasi sequi soluta voluptatibus?',
-				title: 'Vue & PWA app',
-				url: '//your-site-link.com'
+				title: 'Vue & Webpack startup'
 			}
 		}),
 		new UglifyJsPlugin({

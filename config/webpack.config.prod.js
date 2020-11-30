@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserJSPlugin = require('terser-webpack-plugin');
 // config parts
 const Workbox = require('./workbox.js');
 const base = require('./webpack.config');
@@ -10,7 +11,7 @@ const PUBLIC_PATH = 'URL';
 const config = merge(base, {
   mode: 'production',
   optimization: {
-    minimizer: [new TerserPlugin({
+    minimizer: [new TerserJSPlugin({
       exclude: /node_modules/,
       cache: true,
       parallel: true,
