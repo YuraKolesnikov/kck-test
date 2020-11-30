@@ -1,0 +1,42 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "corejs": 3,
+        "modules": false,
+        "loose": false,
+        "targets": {
+          "browsers": [
+            "> 0.4%",
+            "not IE 11",
+            "not OperaMini all",
+            "not IE_Mob 11",
+            "edge >= 12",
+            "chrome >= 30",
+            "Samsung > 9.2",
+            "chromeandroid >= 58",
+            "android >= 10",
+            "ff >= 60",
+            "safari >= 11.1",
+            "ios >= 11.1",
+            "opera >= 62"
+          ]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": false,
+        "regenerator": true,
+        "useESModules": false,
+        "version": "7.0.0-beta.0",
+        "absolutePath": false
+      }
+    ]
+  ],
+  "minified": true
+}
