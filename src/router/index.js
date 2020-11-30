@@ -6,8 +6,7 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
   base: '/',
-  // remove comments for production tip
-  // mode: 'history',
+  mode: 'history',
   routes,
   scrollBehavior() {
     return {
