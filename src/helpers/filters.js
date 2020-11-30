@@ -1,0 +1,1 @@
+export const formatSectionTitle = title => title.split(' ')

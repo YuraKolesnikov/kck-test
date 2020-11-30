@@ -21,6 +21,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     overlay: true,
+    watchContentBase: true
     //https: true for https
   },
   optimization: {
@@ -97,6 +98,14 @@ module.exports = {
                 indentedSyntax: true // optional
               },
             }
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, '../src/assets/scss/vars.scss'),
+              ],
+            },
           },
         ]
       },
