@@ -63,6 +63,12 @@
   }
 }
 
+.v-input__field--textarea {
+  resize: none;
+  min-height: 111px;
+  overflow: hidden;
+}
+
 .v-input__error-message {
   font-size: 12px;
   line-height: 20px;
