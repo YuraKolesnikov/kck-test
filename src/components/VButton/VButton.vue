@@ -19,6 +19,7 @@ export default {
   name: 'VButton',
   props: {
     href: String,
+    target: String,
     disabled: Boolean
   },
   methods: {
