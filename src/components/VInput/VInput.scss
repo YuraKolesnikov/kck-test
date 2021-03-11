@@ -1,0 +1,71 @@
+.v-input {
+  display: flex;
+  flex-flow: column;
+}
+
+.v-input--disabled .v-input__label {
+  color: $inactive-input-label;
+}
+
+.v-input--error {
+  .v-input__field {
+    border-color: $border-error;
+
+    &:hover,
+    &:focus {
+      border-color: $border-error;
+    }
+  }
+}
+
+.v-input__label {
+  margin-bottom: 10px;
+
+  color: $text-01;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 26px;
+  transition: color 0.3s $timing-function;
+}
+
+.v-input__field {
+  padding: 22px;
+  border: 1px solid $border-regular;
+  border-radius: 4px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+
+  transition:
+     color 0.3s $timing-function,
+     border-color 0.3s $timing-function,
+     background-color 0.3s $timing-function;
+
+  &:hover {
+    border-color: $border-hover;
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: $border-focus;
+  }
+
+  &:disabled {
+    background-color: $inactive;
+    border-color: $inactive;
+    color: $inactive-input-label;
+  }
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+.v-input__error-message {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: $text-error;
+  margin: 7px 0 0;
+}
