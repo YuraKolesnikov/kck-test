@@ -1,1 +1,15 @@
-$color-accent: teal;
+$accent: #0096DA; /* Button regular, radio hover, accordion and tab active/hover color */
+$accent-hover: #0081BC; /* Button hover */
+$accent-pressed: #015d87; /* Button pressed */
+
+$inactive: #EDEEEF; /* Disabled radio/input, inactive tab, inactive close tab in accordion */
+$placeholder-color: #B8BED8;
+
+$border-regular: #DADEF0;
+$border-hover: #C3C9DB;
+$border-focus: #8288A2;
+$border-error: #FF1E38;
+
+$text-01: #3F3F3F; /* Input labels (but not radio), accordion text */
+$text-02: #8288A2; /* Regular tab color */
+$text-error: #FF1E38;
