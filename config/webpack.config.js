@@ -5,8 +5,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// config parts
-const Workbox = require('./workbox.js');
 
 module.exports = {
 	entry: [
@@ -76,25 +74,8 @@ module.exports = {
 			},
 			filename: './index.html',
 			template: './src/template/index.template.ejs',
-			children: false,
-			// template info
-			manifest: './dist/pwa/manifest.json',
-			icon: {
-				shortcut: './dist/site-icon/app-logo.png',
-				apple: {
-					'57x57': './dist/site-icon/app-logo.png',
-					'60x60': '../dist/site-icon/app-logo.png',
-					'72x72': './dist/site-icon/app-logo.png',
-					'76x76': './dist/site-icon/app-logo.png',
-					'114x114': './dist/site-icon/app-logo.png',
-					'120x120': './dist/site-icon/app-logo.png',
-					'144x144': './dist/site-icon/app-logo.png',
-					'152x152': './dist/site-icon/app-logo.png',
-					'180x180': './dist/site-icon/app-logo.png',
-				}
-			},
 			meta: {
-				title: 'Vue & Webpack startup'
+				title: 'Тестовое задание для КСК'
 			}
 		}),
 		new UglifyJsPlugin({
@@ -114,18 +95,11 @@ module.exports = {
 			'vue': 'vue/dist/vue.runtime.min.js',
 			'vue-router': 'vue-router/dist/vue-router.min.js',
 			'vuex': 'vuex/dist/vuex.min.js',
-			'images': path.resolve(__dirname, '../src/assets/img'),
 			'icons': path.resolve(__dirname, '../src/assets/icons'),
 			'Root': path.resolve(__dirname, '../src'),
-			'Pages': path.resolve(__dirname, '../src/pages'),
-			'Models': path.resolve(__dirname, '../src/models'),
 			'Components': path.resolve(__dirname, '../src/components'),
+			'Helpers': path.resolve(__dirname, '../src/helpers'),
+			'Utils': path.resolve(__dirname, '../src/utils')
 		}
-	},
-	node: {
-		module: 'empty',
-		fsevents: 'empty',
-		net: 'empty',
-		tls: 'empty'
 	}
 }

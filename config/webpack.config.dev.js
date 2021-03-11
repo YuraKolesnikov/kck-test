@@ -2,8 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// config parts
-const Workbox = require('./workbox.js');
+
 const base = require('./webpack.config');
 
 const config = merge(base, {
@@ -41,7 +40,6 @@ const config = merge(base, {
             options: {
               implementation: require('sass'),
               sassOptions: {
-                fiber: require('fibers'),
                 indentedSyntax: true // optional
               },
             }
@@ -55,32 +53,7 @@ const config = merge(base, {
             },
           },
         ]
-      },
-      {
-        test: /\.(woff|woff2)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 1,
-          publicPath: 'fonts',
-          name: '[name].[sha1:hash:base64:5].[ext]'
-        },
-      },
-      {
-        test: /\.(png|jpg)$/,
-        loader: 'file-loader',
-        options: {
-          outputPath: 'dist/img',
-          name: '[name].[ext]'
-        },
-      },
-      {
-        test: /\.(svg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 1,
-          name: 'dist/icons/[name].[sha1:hash:base64:5].[ext]'
-        },
-      },
+      }
     ]
   },
   plugins: [
