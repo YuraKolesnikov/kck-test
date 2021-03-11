@@ -7,20 +7,16 @@
 </template>
 
 <script>
+import InputPropMixin from 'Root/mixins/InputPropMixin'
 export default {
   name: 'VInput',
   model: {
     prop: 'value',
     event: 'input'
   },
+  mixins: [InputPropMixin],
   props: {
-    id: String,
-    name: String,
-    value: String,
-    label: String,
     error: Boolean,
-    disabled: Boolean,
-    required: Boolean,
     placeholder: String,
     errorMessage: String,
     type: {

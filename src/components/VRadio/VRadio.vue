@@ -19,20 +19,14 @@
 </template>
 
 <script>
+import InputPropMixin from 'Root/mixins/InputPropMixin'
 export default {
   name: "VRadio",
   model: {
     prop: 'value',
     event: 'change'
   },
-  props: {
-    value: String,
-    id: String,
-    name: String,
-    disabled: Boolean,
-    required: Boolean,
-    label: String
-  },
+  mixins: [InputPropMixin],
   computed: {
     isChecked() {
       return this.id === this.value
