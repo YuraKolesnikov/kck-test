@@ -25,6 +25,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 26px;
+
   transition: color 0.3s $timing-function;
 }
 
@@ -38,9 +39,9 @@
   line-height: 26px;
 
   transition:
-     color 0.3s $timing-function,
-     border-color 0.3s $timing-function,
-     background-color 0.3s $timing-function;
+    color 0.3s $timing-function,
+    border-color 0.3s $timing-function,
+    background-color 0.3s $timing-function;
 
   &:hover {
     border-color: $border-hover;
@@ -67,5 +68,6 @@
   line-height: 20px;
   font-weight: 500;
   color: $text-error;
+
   margin: 7px 0 0;
 }

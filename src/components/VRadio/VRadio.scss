@@ -1,10 +1,12 @@
 .v-radio {
+  user-select: none;
+  padding-left: 34px;
+
   display: inline-flex;
   align-items: center;
-  padding-left: 34px;
+
   position: relative;
   cursor: pointer;
-  user-select: none;
 
   &:not(.v-radio--checked):not(.v-radio--disabled):hover {
     &::before {
@@ -20,28 +22,35 @@
     content: "";
     border: 1px solid $border-regular;
     border-radius: 50%;
+
     height: 20px;
     width: 20px;
+
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+
     transition: border-color 0.3s $timing-function;
   }
 
   &::after {
     content: "";
+    border-radius: 50%;
+
     height: 8px;
     width: 8px;
-    border-radius: 50%;
+    background-color: $accent;
+
     position: absolute;
     left: 7px;
-    background-color: $accent;
+
     opacity: 0;
     transform: scale(0.5);
+
     transition:
-            opacity 0.3s $timing-function,
-            transform 0.3s $timing-function;
+      opacity 0.3s $timing-function,
+      transform 0.3s $timing-function;
   }
 }
 
@@ -79,9 +88,11 @@
 .v-radio__label {
   margin: 0;
   padding: 0;
+
   font-size: 14px;
   font-weight: 500;
   line-height: 26px;
   color: #000;
+
   transition: color 0.3s $timing-function;
 }

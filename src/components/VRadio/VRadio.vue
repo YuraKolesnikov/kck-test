@@ -21,7 +21,7 @@
 <script>
 import InputPropMixin from 'Root/mixins/InputPropMixin'
 export default {
-  name: "VRadio",
+  name: 'VRadio',
   model: {
     prop: 'value',
     event: 'change'
