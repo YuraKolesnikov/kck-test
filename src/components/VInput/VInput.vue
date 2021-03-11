@@ -1,9 +1,34 @@
 <template>
-  <div class="v-input" :class="inputClassList">
-    <label class="v-input__label" :for="id">{{ label }}</label>
-    <input class="v-input__field" :value="localValue" v-bind="attrs" @input="onInput" v-if="type !== 'textarea'">
-    <textarea class="v-input__field v-input__field--textarea" :value="localValue" v-bind="attrs" @input="onInput" v-else></textarea>
-    <p v-if="error" class="v-input__error-message">{{ errorMessage }}</p>
+  <div
+    class="v-input"
+    :class="inputClassList">
+
+    <label
+      class="v-input__label"
+      :for="id">
+      {{ label }}
+    </label>
+
+    <input
+      class="v-input__field"
+      :value="localValue"
+      v-bind="attrs"
+      @input="onInput"
+      v-if="type !== 'textarea'">
+
+    <textarea
+      class="v-input__field v-input__field--textarea"
+      :value="localValue"
+      v-bind="attrs"
+      @input="onInput"
+      v-else>
+    </textarea>
+
+    <p
+      v-if="error"
+      class="v-input__error-message">
+      {{ errorMessage }}
+    </p>
   </div>
 </template>
 

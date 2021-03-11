@@ -3,6 +3,7 @@
     class="v-radio"
     :class="radioClassList"
     :for="id">
+
     <input
       class="v-radio__input"
       type="radio"
@@ -14,6 +15,7 @@
         checked: isChecked
       }"
       @change="$emit('change', id)">
+
     <span class="v-radio__label">{{ label }}</span>
   </label>
 </template>
