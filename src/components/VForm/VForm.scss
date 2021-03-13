@@ -1,0 +1,40 @@
+.v-form {
+  padding: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 38px;
+  background-color: #fff;
+}
+
+.v-form__button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.v-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.v-fieldset--block {
+  grid-column: 1 / -1;
+}
+
+.v-fieldset__radio-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .v-form {
+    grid-template-columns: none;
+  }
+
+  .v-fieldset {
+    grid-column: 1 / -1;
+  }
+}
