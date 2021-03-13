@@ -17,7 +17,8 @@
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13",
     "vuex": "^3.1.2",
-    "workbox-webpack-plugin": "^4.3.1"
+    "workbox-webpack-plugin": "^4.3.1",
+    "vue-svg-loader": "^0.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
@@ -32,7 +33,6 @@
     "babel-loader": "^8.0.0",
     "css-loader": "^3.3.2",
     "css-mqpacker": "^7.0.0",
-    "file-loader": "^1.1.11",
     "html-loader": "^0.5.1",
     "html-minifier": "^3.5.21",
     "html-webpack-plugin": "^3.2.0",

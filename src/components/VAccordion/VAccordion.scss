@@ -1,3 +1,69 @@
 .v-accordion {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
 
+.v-accordion__item {
+  overflow: hidden;
+}
+
+.v-accordion__item--open {
+  overflow: visible;
+}
+
+.v-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 23px 17px;
+  background-color: #fff;
+  border: 0;
+  border-bottom: 1px solid $border-regular;
+  transition: color 0.3s $timing-function;
+
+  &:hover {
+    color: $accent;
+
+    & > .v-accordion__arrow {
+      fill: $accent;
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.v-accordion__trigger--active {
+  color: $accent;
+
+  & > .v-accordion__arrow {
+    fill: $accent;
+    transform: rotate(180deg);
+  }
+}
+
+.v-accordion__content {
+  border-bottom: 1px solid $border-regular;
+}
+
+.v-accordion__arrow {
+  width: 10px;
+  height: 6px;
+  transition:
+    transform 0.3s $timing-function,
+    fill 0.3s $timing-function;
+}
+
+.accordion-item-enter-active, .accordion-item-leave-active {
+  will-change: height;
+  transition: height 0.3s $timing-function;
+}
+.accordion-item-enter, .accordion-item-leave-to {
+  height: 0 !important;
 }
