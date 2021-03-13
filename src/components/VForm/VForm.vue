@@ -5,7 +5,8 @@
     <fieldset
       class="v-fieldset"
       :class="{
-        'v-fieldset--block': field.block
+        'v-fieldset--block': field.block,
+        'v-fieldset__radio-wrapper': field.type === 'radio'
       }"
       v-for="field in visibleFields"
       :key="`form_field_${field.id}`">
@@ -23,6 +24,7 @@
       </template>
       <template v-else>
         <VRadio
+          class="v-form__radio"
           v-for="radio in field.options"
           :key="`radio_${field.id}_${radio.id}`"
           :id="radio.id"
@@ -31,6 +33,16 @@
           :label="radio.label"
           v-model="formValues[field.id]"
         />
+        <!-- Hack for formData -->
+        <input
+          :name="field.id"
+          type="hidden"
+          v-model="formValues[field.id]">
+        <p
+          v-if="invalidFields.includes(field.id)"
+          class="v-form__error-message">
+          {{ field.errorMessage }}
+        </p>
       </template>
     </fieldset>
     <fieldset class="v-fieldset v-fieldset--block v-form__button-wrapper">

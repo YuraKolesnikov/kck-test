@@ -13,6 +13,15 @@
   justify-content: flex-end;
 }
 
+.v-form__error-message {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: $text-error;
+
+  margin: 7px 0 0;
+}
+
 .v-fieldset {
   border: 0;
   padding: 0;
@@ -24,9 +33,21 @@
 }
 
 .v-fieldset__radio-wrapper {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 992px) {
+  .v-fieldset__radio-wrapper {
+    flex-flow: column;
+    align-items: flex-start;
+
+    .v-form__radio:not(:first-child) {
+      margin-top: 24px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
