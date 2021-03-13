@@ -13,6 +13,11 @@
   justify-content: flex-end;
 }
 
+.v-form__map {
+  flex-basis: 100%;
+  margin-top: 24px;
+}
+
 .v-form__error-message {
   font-size: 12px;
   line-height: 20px;
@@ -35,6 +40,7 @@
 .v-fieldset__radio-wrapper {
   grid-column: 1 / -1;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }

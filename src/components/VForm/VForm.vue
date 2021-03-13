@@ -2,15 +2,14 @@
   <form
     class="v-form"
     @submit.prevent="onSubmit">
-    <fieldset
-      class="v-fieldset"
-      :class="{
-        'v-fieldset--block': field.block,
-        'v-fieldset__radio-wrapper': field.type === 'radio'
-      }"
-      v-for="field in visibleFields"
-      :key="`form_field_${field.id}`">
-      <template v-if="field.type === 'text' || field.type === 'textarea'">
+    <template v-for="field in visibleFields">
+      <fieldset
+        v-if="field.type === 'text' || field.type === 'textarea'"
+        class="v-fieldset"
+        :class="{
+          'v-fieldset--block': field.block
+        }"
+        :key="`form_field_${field.id}`">
         <VInput
           :type="field.type"
           :id="field.id"
@@ -21,8 +20,10 @@
           :error="invalidFields.includes(field.id)"
           v-model="formValues[field.id]"
         />
-      </template>
-      <template v-else>
+      </fieldset>
+      <fieldset
+        v-else
+        class="v-fieldset v-fieldset__radio-wrapper">
         <VRadio
           class="v-form__radio"
           v-for="radio in field.options"
@@ -33,6 +34,7 @@
           :label="radio.label"
           v-model="formValues[field.id]"
         />
+        <VMap class="v-form__map" />
         <!-- Hack for formData -->
         <input
           :name="field.id"
@@ -43,8 +45,8 @@
           class="v-form__error-message">
           {{ field.errorMessage }}
         </p>
-      </template>
-    </fieldset>
+      </fieldset>
+    </template>
     <fieldset class="v-fieldset v-fieldset--block v-form__button-wrapper">
       <v-button type="submit">
         Отправить
@@ -57,6 +59,7 @@
 import VButton from 'Components/VButton'
 import VInput from 'Components/VInput'
 import VRadio from 'Components/VRadio'
+import VMap from 'Components/VMap'
 import { getTypeOf } from 'Helpers/typeof'
 
 export default {
@@ -68,12 +71,18 @@ export default {
   components: {
     VButton,
     VInput,
-    VRadio
+    VRadio,
+    VMap
   },
   data() {
     return {
       invalidFields: [],
-      formValues: {}
+      formValues: {},
+      currentLandmark: null,
+      landmarkData: {
+        longitude: null,
+        latitude: null
+      }
     }
   },
   methods: {
