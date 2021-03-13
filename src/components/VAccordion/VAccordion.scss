@@ -14,15 +14,19 @@
 }
 
 .v-accordion__trigger {
+  border: 0;
+  cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
-  text-align: left;
-  cursor: pointer;
   padding: 23px 17px;
+  text-align: left;
+  color: $text-02;
   background-color: #fff;
-  border: 0;
+
   border-bottom: 1px solid $border-regular;
   transition: color 0.3s $timing-function;
 
