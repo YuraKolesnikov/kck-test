@@ -34,3 +34,9 @@
   color: $inactive-input-label;
   background-color: $inactive;
 }
+
+@media (max-width: 600px) {
+  .v-button {
+    width: 100%;
+  }
+}
