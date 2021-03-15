@@ -120,6 +120,10 @@ export default {
           }
         }
       }
+
+      if (!this.invalidFields.length) {
+        this.$emit('submit', true)
+      }
     }
   },
   computed: {

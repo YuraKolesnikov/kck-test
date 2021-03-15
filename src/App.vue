@@ -1,17 +1,24 @@
 <template>
   <main class="v-main">
-    <div class="v-container">
+    <div class="v-container" v-if="!isSuccess">
       <v-accordion :items="items" v-model="activeTab" v-if="isMobile">
         <template #delivery>
-          <v-form :fields="formFields.delivery" :current-field-group="activeTab" />
+          <v-form :fields="formFields.delivery" :current-field-group="activeTab" @submit="onSubmit" />
         </template>
         <template #pickup>
-          <v-form :fields="formFields.pickup" :current-field-group="activeTab" />
+          <v-form :fields="formFields.pickup" :current-field-group="activeTab" @submit="onSubmit" />
         </template>
       </v-accordion>
       <div v-else>
         <v-tabs :tabs="items" v-model="activeTab" />
-        <v-form :fields="formFields" :current-field-group="activeTab" />
+        <v-form :fields="formFields" :current-field-group="activeTab" @submit="onSubmit" />
+      </div>
+    </div>
+    <div class="v-container" v-else>
+      <div class="v-success-banner">
+        <h4>Поздравляем!</h4>
+        <p>Ваш заказ принят и скоро будет на месте!</p>
+        <p>Переход на страницу через... {{ countdown }}</p>
       </div>
     </div>
   </main>
@@ -36,7 +43,9 @@ export default {
   },
   data() {
     return {
+      isSuccess: false,
       activeTab: 'delivery',
+      countdown: 5,
       items: [
         { id: 'delivery', label: 'Доставка курьером' },
         { id: 'pickup', label: 'Самовывоз' }
@@ -78,11 +87,18 @@ export default {
     touchDeviceMatch().addListener(this.setDeviceType)
   },
   methods: {
-    onSubmit ({ target }) {
-      const formData = new FormData(target)
-      for (const field of formData.entries()) {
-        console.log(field)
-      }
+    onSubmit (isSuccess) {
+      this.isSuccess = isSuccess
+      this.activeTab = 'delivery'
+      const countdownFunc = setInterval(() => {
+        if (this.countdown === 0) {
+          clearInterval(countdownFunc)
+        }
+        this.countdown -= 1
+      }, 1000)
+      setTimeout(() => {
+        this.isSuccess = false
+      }, 6000)
     },
     setDeviceType() {
       this.isMobile = narrowViewportMatch().matches || touchDeviceMatch().matches
@@ -105,5 +121,14 @@ export default {
   max-width: 1200px;
   padding: 20px;
   margin: auto;
+}
+
+.v-success-banner {
+  max-width: 600px;
+  margin: auto;
+  padding: 15px;
+  background-color: $bg-success;
+  border: 1px solid $border-success;
+  border-radius: 4px;
 }
 </style>
