@@ -12,7 +12,11 @@ export default {
       landmarkData: {
         longitude: null,
         latitude: null
-      }
+      },
+      landmarks: [
+        { id: 'first', latitude: 55.692036355379175, longitude: 37.50739140640532 },
+        { id: 'second', latitude: 55.802036355379175, longitude: 37.70739140640532 }
+      ]
     }
   },
   created() {
@@ -28,16 +32,10 @@ export default {
         controls: ['zoomControl']
       })
 
-      const firstPlacemark = new ymaps.Placemark(
-        [55.752036355379175, 37.61739140640532]
-      )
+      this.landmarks.forEach(lm =>
+          this.map.geoObjects.add(new ymaps.Placemark([ lm.latitude, lm.longitude ])))
 
-      const secondPlacemark = new ymaps.Placemark(
-        [55.715726897873786, 37.67884480152205]
-      )
-
-      this.map.geoObjects.add(firstPlacemark)
-      this.map.geoObjects.add(secondPlacemark)
+      this.map.setBounds(this.map.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 9 })
     }
   }
 }
