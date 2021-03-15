@@ -14,6 +14,7 @@
           :type="field.type"
           :id="field.id"
           :name="field.id"
+          :mask="field.mask"
           :label="field.label"
           :placeholder="field.placeholder"
           :error-message="errorMessages[field.id]"
@@ -64,7 +65,7 @@ import VInput from 'Components/VInput'
 import VRadio from 'Components/VRadio'
 import VMap from 'Components/VMap'
 import { getTypeOf } from 'Helpers/typeof'
-import { nameRegex } from 'Helpers/regex'
+import { nameRegex, ruPhoneRegex } from 'Helpers/regex'
 import { clearObject } from 'Helpers/object'
 
 export default {
@@ -109,6 +110,13 @@ export default {
           if (!value.match(nameRegex)) {
             this.invalidFields.push('full_name')
             this.errorMessages.full_name = 'Имя может содержать только буквы кириллицы, тире и пробелы!'
+          }
+        }
+
+        if (field === 'phone') {
+          if (!value.match(ruPhoneRegex)) {
+            this.invalidFields.push('phone')
+            this.errorMessages.phone = 'Формат телефона не совпадает с требуемым!'
           }
         }
       }

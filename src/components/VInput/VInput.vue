@@ -10,6 +10,7 @@
     </label>
 
     <input
+      v-mask="mask"
       class="v-input__field"
       :value="localValue"
       v-bind="attrs"
@@ -33,15 +34,20 @@
 </template>
 
 <script>
+import { VueMaskDirective } from 'v-mask'
 import InputPropMixin from 'Root/mixins/InputPropMixin'
 export default {
   name: 'VInput',
+  directives: {
+    mask: VueMaskDirective
+  },
   model: {
     prop: 'value',
     event: 'input'
   },
   mixins: [InputPropMixin],
   props: {
+    mask: String,
     error: Boolean,
     placeholder: String,
     errorMessage: String,
