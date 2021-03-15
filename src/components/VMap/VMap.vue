@@ -1,5 +1,8 @@
 <template>
-  <div id="map" class="v-map"></div>
+  <div
+    id="map"
+    class="v-map">
+  </div>
 </template>
 
 <script>

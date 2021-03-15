@@ -1,20 +1,42 @@
 <template>
   <main class="v-main">
-    <div class="v-container" v-if="!isSuccess">
-      <v-accordion :items="items" v-model="activeTab" v-if="isMobile">
+    <div
+      class="v-container"
+      v-if="!isSuccess">
+      <v-accordion
+        :items="items"
+        v-model="activeTab"
+        v-if="isMobile">
         <template #delivery>
-          <v-form :fields="formFields.delivery" :current-field-group="activeTab" @submit="onSubmit" />
+          <v-form
+            :fields="formFields.delivery"
+            :current-field-group="activeTab"
+            @submit="onSubmit"
+          />
         </template>
         <template #pickup>
-          <v-form :fields="formFields.pickup" :current-field-group="activeTab" @submit="onSubmit" />
+          <v-form
+            :fields="formFields.pickup"
+            :current-field-group="activeTab"
+            @submit="onSubmit"
+          />
         </template>
       </v-accordion>
       <div v-else>
-        <v-tabs :tabs="items" v-model="activeTab" />
-        <v-form :fields="formFields" :current-field-group="activeTab" @submit="onSubmit" />
+        <v-tabs
+          :tabs="items"
+          v-model="activeTab"
+        />
+        <v-form
+          :fields="formFields"
+          :current-field-group="activeTab"
+          @submit="onSubmit"
+        />
       </div>
     </div>
-    <div class="v-container" v-else>
+    <div
+      class="v-container"
+      v-else>
       <div class="v-success-banner">
         <h4>Поздравляем!</h4>
         <p>Ваш заказ принят и скоро будет на месте!</p>
