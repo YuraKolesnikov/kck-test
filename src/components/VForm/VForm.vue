@@ -16,7 +16,7 @@
           :name="field.id"
           :label="field.label"
           :placeholder="field.placeholder"
-          :error-message="field.errorMessage"
+          :error-message="errorMessages[field.id]"
           :error="invalidFields.includes(field.id)"
           v-model="formValues[field.id]"
         />
@@ -64,6 +64,8 @@ import VInput from 'Components/VInput'
 import VRadio from 'Components/VRadio'
 import VMap from 'Components/VMap'
 import { getTypeOf } from 'Helpers/typeof'
+import { nameRegex } from 'Helpers/regex'
+import { clearObject } from 'Helpers/object'
 
 export default {
   name: 'VForm',
@@ -81,6 +83,7 @@ export default {
     return {
       invalidFields: [],
       formValues: {},
+      errorMessages: {},
       currentLandmark: null,
       landmarkData: {
         longitude: null,
@@ -91,11 +94,22 @@ export default {
   methods: {
     onSubmit ({ target }) {
       this.invalidFields = []
+      clearObject(this.errorMessages)
+
       const formData = new FormData(target)
       for (const entry of formData.entries()) {
         const [ field, value ] = entry
         if (!value) {
           this.invalidFields.push(field)
+          this.errorMessages[field] = 'Это поле обязательно!'
+          continue
+        }
+
+        if (field === 'full_name') {
+          if (!value.match(nameRegex)) {
+            this.invalidFields.push('full_name')
+            this.errorMessages.full_name = 'Имя может содержать только буквы кириллицы, тире и пробелы!'
+          }
         }
       }
     }
@@ -110,12 +124,14 @@ export default {
       Object.keys(this.fields).forEach(fieldGroupId => {
         this.fields[fieldGroupId].forEach(field => {
           this.$set(this.formValues, field.id, '')
+          this.$set(this.errorMessages, field.id, '')
         })
       })
     } else {
       /* Respectively, array */
       this.fields.forEach(field => {
         this.$set(this.formValues, field.id, '')
+        this.$set(this.errorMessages, field.id, '')
       })
     }
   }

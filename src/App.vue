@@ -44,10 +44,10 @@ export default {
       isMobile: false,
       formFields: {
         delivery: [
-          { id: 'full_name', type: 'text', label: 'Ф.И.О.', placeholder: 'Только кириллица', errorMessage: 'Пожалуйста, введите Ф.И.О.!' },
-          { id: 'phone', type: 'text', label: 'Телефон', placeholder: '+7 (___) ___-__-__', errorMessage: 'Пожалуйста, введите номер телефона!' },
-          { id: 'address', type: 'text', label: 'Адрес доставки', placeholder: 'Город, улица, дом', errorMessage: 'Пожалуйста, введите адрес!', block: true },
-          { id: 'comment', type: 'textarea', label: 'Комментарий', errorMessage: 'Пожалуйста, оставьте комментарий!', block: true }
+          { id: 'full_name', type: 'text', label: 'Ф.И.О.', placeholder: 'Только кириллица' },
+          { id: 'phone', type: 'text', label: 'Телефон', placeholder: '+7 (___) ___-__-__' },
+          { id: 'address', type: 'text', label: 'Адрес доставки', placeholder: 'Город, улица, дом', block: true },
+          { id: 'comment', type: 'textarea', label: 'Комментарий', block: true }
         ],
         pickup: [
           {
