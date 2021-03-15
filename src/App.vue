@@ -32,6 +32,7 @@ import VInput from 'Components/VInput'
 import VRadio from 'Components/VRadio'
 import VTabs from 'Components/VTabs'
 import VForm from 'Components/VForm'
+import { NAME_REGEX, PHONE_REGEX } from 'Helpers/regex'
 export default {
   components: {
     VAccordion,
@@ -53,8 +54,8 @@ export default {
       isMobile: false,
       formFields: {
         delivery: [
-          { id: 'full_name', type: 'text', label: 'Ф.И.О.', placeholder: 'Только кириллица' },
-          { id: 'phone', type: 'text', label: 'Телефон', placeholder: '+7 (___) ___-__-__', mask: '+7(###)-###-##-##' },
+          { id: 'full_name', type: 'text', label: 'Ф.И.О.', placeholder: 'Только кириллица', regex: NAME_REGEX },
+          { id: 'phone', type: 'text', label: 'Телефон', placeholder: '+7 (___) ___-__-__', mask: '+7(###)-###-##-##', regex: PHONE_REGEX },
           { id: 'address', type: 'text', label: 'Адрес доставки', placeholder: 'Город, улица, дом', block: true },
           { id: 'comment', type: 'textarea', label: 'Комментарий', block: true }
         ],

@@ -65,9 +65,8 @@ import VInput from 'Components/VInput'
 import VRadio from 'Components/VRadio'
 import VMap from 'Components/VMap'
 import { getTypeOf } from 'Helpers/typeof'
-import { nameRegex, ruPhoneRegex } from 'Helpers/regex'
 import { clearObject } from 'Helpers/object'
-
+import { REGEX_MESSAGES } from 'Helpers/constants'
 export default {
   name: 'VForm',
   props: {
@@ -98,25 +97,21 @@ export default {
       clearObject(this.errorMessages)
 
       const formData = new FormData(target)
+
       for (const entry of formData.entries()) {
-        const [ field, value ] = entry
+        const [ name, value ] = entry
         if (!value) {
-          this.invalidFields.push(field)
-          this.errorMessages[field] = 'Это поле обязательно!'
+          this.invalidFields.push(name)
+          this.errorMessages[name] = 'Это поле обязательно!'
           continue
         }
 
-        if (field === 'full_name') {
-          if (!value.match(nameRegex)) {
-            this.invalidFields.push('full_name')
-            this.errorMessages.full_name = 'Имя может содержать только буквы кириллицы, тире и пробелы!'
-          }
-        }
+        const currentField = this.fields[this.currentFieldGroup].find(fieldObj => fieldObj.id === name)
 
-        if (field === 'phone') {
-          if (!value.match(ruPhoneRegex)) {
-            this.invalidFields.push('phone')
-            this.errorMessages.phone = 'Формат телефона не совпадает с требуемым!'
+        if ('regex' in currentField) {
+          if (!value.match(currentField.regex)) {
+            this.invalidFields.push(name)
+            this.errorMessages[name] = REGEX_MESSAGES[name]
           }
         }
       }

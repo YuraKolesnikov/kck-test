@@ -1,5 +1,4 @@
-export const MS_PER_DAY = 1000 * 60 * 60 * 24
-
-export const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-export const MONTH_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+export const REGEX_MESSAGES = {
+  full_name: 'Имя может содержать только буквы кириллицы, тире и пробелы!',
+  phone: 'Формат телефона не совпадает с требуемым!'
+}
