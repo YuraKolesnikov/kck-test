@@ -1,4 +1,4 @@
-import { getTypeOf } from '@/helpers/typeof';
+import { getTypeOf } from './typeof';
 
 export const clearObject = (obj, mode = 'soft') => {
 	Object.keys(obj).forEach(field => {
@@ -19,6 +19,8 @@ export const clearObject = (obj, mode = 'soft') => {
 			obj[field] = 0
 		} else if (type === 'boolean') {
 			obj[field] = false
+		} else if (type === 'string') {
+			obj[field] = ''
 		} else {
 			obj[field] = null
 		}
