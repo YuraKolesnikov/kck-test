@@ -24,16 +24,19 @@
       <fieldset
         v-else
         class="v-fieldset v-fieldset__radio-wrapper">
-        <VRadio
-          class="v-form__radio"
+        <div
+          class="v-fieldset__radio"
           v-for="radio in field.options"
-          :key="`radio_${field.id}_${radio.id}`"
-          :id="radio.id"
-          :name="field.id"
-          :value="radio.value"
-          :label="radio.label"
-          v-model="formValues[field.id]"
-        />
+          :key="`radio_${field.id}_${radio.id}`">
+          <VRadio
+            class="v-form__radio"
+            :id="radio.id"
+            :name="field.id"
+            :value="radio.value"
+            :label="radio.label"
+            v-model="formValues[field.id]"
+          />
+        </div>
         <VMap class="v-form__map" />
         <!-- Hack for formData -->
         <input

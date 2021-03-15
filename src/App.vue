@@ -55,7 +55,9 @@ export default {
             type: 'radio',
             options: [
               { id: 'first', type: 'radio', label: 'Пункт Выдачи заказов Песчаная улица, дом 13' },
-              { id: 'second', type: 'radio', label: 'Пункт Выдачи заказов Подсосенский переулок, 11' }
+              { id: 'second', type: 'radio', label: 'Пункт Выдачи заказов Подсосенский переулок, 11' },
+              { id: 'third', type: 'radio', label: 'Пункт Выдачи заказов улица Строителей, дом 13' },
+              { id: 'fourth', type: 'radio', label: 'Пункт Выдачи заказов улица Судостроительная, дом 90' }
             ],
             errorMessage: 'Пожалуйста, выберите пункт выдачи заказов!'
           }
