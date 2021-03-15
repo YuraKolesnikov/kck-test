@@ -16,7 +16,13 @@ export default {
       landmarks: [
         { id: 'first', latitude: 55.692036355379175, longitude: 37.50739140640532 },
         { id: 'second', latitude: 55.802036355379175, longitude: 37.70739140640532 }
-      ]
+      ],
+      markOptions: {
+        iconLayout: 'default#image',
+        iconImageHref: 'public/icons/mark.svg',
+        iconImageSize: [32, 44],
+        iconImageOffset: [-5, -38]
+      }
     }
   },
   created() {
@@ -33,7 +39,7 @@ export default {
       })
 
       this.landmarks.forEach(lm =>
-          this.map.geoObjects.add(new ymaps.Placemark([ lm.latitude, lm.longitude ])))
+          this.map.geoObjects.add(new ymaps.Placemark([ lm.latitude, lm.longitude ], null, this.markOptions)))
 
       this.map.setBounds(this.map.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 9 })
     }
